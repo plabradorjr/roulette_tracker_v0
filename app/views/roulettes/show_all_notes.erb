@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rollette App</title>
+  <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="../stylesheets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../stylesheets/pl-styles.css">
+</head>
+<main>
+
+<!-- START HERE -->
+<% name = current_user.username%>
+<% name_url = name.downcase%>
+     
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">🎰 Roulette Data Tracker</a>
+      <form class="form-inline my-2 my-lg-0">
+          <a class="btn btn-outline-light my-sm-0" href="/logout" role="button">Log out</a>
+      </form>
+    </div>
+  </nav>
+
+  <div class="container">
+    <br><br><br>
+    <h4 class="text-secondary">Add winning numbers below:</h4><br>
+
+    <form action="/" method="POST">
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="descbox">Enter numbers separated by comma</label>
+        </div>
+        <textarea type="integer" name="landed_number" id="descbox" class="form-control"></textarea>
+      </div>
+
+      <input class="btn btn-lg btn-primary btn-block" type="submit" value="submit">
+
+    </form>
+    
+  </div>
+
+  <div class="container mt-3">
+    <form method="post" action="delete">
+          <input id="hidden" type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-sm btn-danger btn-sm text-white">Delete All Data</button>
+    </form>
+  </div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <br><span class="h4 text-secondary"> Total Spins Tracked: <%=Spin.all.count%></span><br><br>
+      </div>
+        <!-- zero is id37, double_zero is id38-->
+        <%double_zero = Roulette.find_by_id(38)%>
+        <div class="col-1"><p>00</p></div>
+        <div class="col-11 pl-bg-greyish pl-0 ">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((double_zero.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #55efc4; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((double_zero.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%twenty_seven = Roulette.find_by_id(27)%>
+        <div class="col-1"><p>27</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_seven.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_seven.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%ten = Roulette.find_by_id(10)%>
+        <div class="col-1"><p>10</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((ten.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((ten.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%twenty_five = Roulette.find_by_id(25)%>
+        <div class="col-1"><p>25</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_five.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_five.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%twenty_nine = Roulette.find_by_id(29)%>
+        <div class="col-1"><p>29</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_nine.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_nine.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%twelve = Roulette.find_by_id(12)%>
+        <div class="col-1"><p>12</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((twelve.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((twelve.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%eight = Roulette.find_by_id(8)%>
+        <div class="col-1"><p>8</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((eight.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((eight.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%ninetine = Roulette.find_by_id(19)%>
+        <div class="col-1"><p>19</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((ninetine.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((ninetine.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+        
+       <%thirty_one = Roulette.find_by_id(31)%>
+        <div class="col-1"><p>31</p></div>
+       <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_one.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_one.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%eighteen = Roulette.find_by_id(18)%>
+        <div class="col-1"><p>18</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((eighteen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((eighteen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%six = Roulette.find_by_id(6)%>
+        <div class="col-1"><p>6</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((six.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((six.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%twenty_one = Roulette.find_by_id(21)%>
+        <div class="col-1"><p>21</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_one.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_one.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%thirty_three = Roulette.find_by_id(33)%>
+        <div class="col-1"><p>33</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_three.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_three.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%sixteen = Roulette.find_by_id(16)%>
+        <div class="col-1"><p>16</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((sixteen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((sixteen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%four = Roulette.find_by_id(4)%>
+        <div class="col-1"><p>4</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((four.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((four.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%twenty_three = Roulette.find_by_id(23)%>
+        <div class="col-1"><p>23</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_three.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_three.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%thirty_five = Roulette.find_by_id(35)%>
+        <div class="col-1"><p>35</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_five.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_five.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%fourteen = Roulette.find_by_id(14)%>
+        <div class="col-1"><p>14</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((fourteen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((fourteen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%two = Roulette.find_by_id(2)%>
+        <div class="col-1"><p>2</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((two.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((two.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%zero = Roulette.find_by_id(37)%>
+        <div class="col-1"><p>0</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((zero.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #55efc4; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((zero.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%twenty_eight = Roulette.find_by_id(28)%>
+        <div class="col-1"><p>28</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_eight.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_eight.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%nine = Roulette.find_by_id(9)%>
+        <div class="col-1"><p>9</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((nine.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((nine.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%twenty_six = Roulette.find_by_id(26)%>
+        <div class="col-1"><p>26</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_six.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_six.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%thirty = Roulette.find_by_id(30)%>
+        <div class="col-1"><p>30</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((thirty.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((thirty.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%eleven = Roulette.find_by_id(11)%>
+        <div class="col-1"><p>11</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((eleven.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((eleven.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%seven = Roulette.find_by_id(7)%>
+        <div class="col-1"><p>7</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((seven.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((seven.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%twenty = Roulette.find_by_id(20)%>
+        <div class="col-1"><p>20</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((twenty.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((twenty.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%thirty_two = Roulette.find_by_id(32)%>
+        <div class="col-1"><p>32</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_two.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_two.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%seventeen = Roulette.find_by_id(17)%>
+        <div class="col-1"><p>17</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((seventeen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((seventeen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%five = Roulette.find_by_id(5)%>
+        <div class="col-1"><p>5</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((five.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((five.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%twenty_two = Roulette.find_by_id(22)%>
+        <div class="col-1"><p>22</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_two.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_two.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%thirty_four = Roulette.find_by_id(34)%>
+        <div class="col-1"><p>34</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_four.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_four.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%fifteen = Roulette.find_by_id(15)%>
+        <div class="col-1"><p>15</p></div>
+       <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((fifteen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((fifteen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%three = Roulette.find_by_id(3)%>
+        <div class="col-1"><p>3</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((three.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((three.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%twenty_four = Roulette.find_by_id(24)%>
+        <div class="col-1"><p>24</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_four.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((twenty_four.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%thirty_six = Roulette.find_by_id(36)%>
+        <div class="col-1"><p>36</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_six.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((thirty_six.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%thirteen = Roulette.find_by_id(13)%>
+        <div class="col-1"><p>13</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((thirteen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #636e72; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((thirteen.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+
+        <%one = Roulette.find_by_id(1)%>
+        <div class="col-1"><p>1</p></div>
+        <div class="col-11 pl-bg-greyish pl-0">
+          <div style="width: <%=(Spin.all.count.to_i == 0) ? 0 : ((one.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%; background-color: #e17055; text-align: right;"><%=(Spin.all.count.to_i == 0) ? 0 : ((one.landing_frequency.to_f / Spin.all.count.to_i) * 100).round(2)%>%
+          </div>
+        </div>
+        
+    
+    </div>
+  </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+    </script>
+    <script>
+        // Enable Tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+        // Enable Popovers
+        $('[data-toggle="popover"]').popover();
+    </script>
+</main>
+
+</html>
+
+

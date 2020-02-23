@@ -1,0 +1,185 @@
+.pl-font-tiny {
+    font-size: 13px;
+}
+
+.pl-toppad {
+    padding-top: 200px;
+}
+
+.pl-height-mid {
+    height: 30rem;
+}
+
+.pl-bg-tan {
+    background-color: #fae3c4;
+}
+
+.pl-bg-dark {
+    background-color: #15202B;
+}
+
+.pl-bg-greyish {
+    background-color: #EDF0F5;
+}
+
+.pl-bg-redish {
+    background-color: #e5432d;
+}
+
+.pl-code {
+    line-height: 1rem;
+    padding: .2rem .4rem;
+    font-size: 90%;
+    color: #bd4147;
+    background-color: #f8f9fa;
+    border-radius: .25rem;
+}
+
+.pl-grid>.col,
+.pl-grid [class^=col-] {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background-color: rgba(86, 61, 124, .15);
+    border: 1px solid rgba(86, 61, 124, .2);
+}
+
+.pl-height {
+    height: 8rem;
+}
+
+.pl-height-tall {
+    height: 12rem;
+}
+
+.pl-highlight {
+    background-color: rgba(86, 61, 124, .15);
+    border: 1px solid rgba(86, 61, 124, .2);
+}
+
+.pl-hr-white {
+    margin-top: 0;
+    height: 1px;
+    background-color: #fff;
+    margin-left: 0px;
+}
+
+.pl-line-height {
+    line-height: 1.5rem;
+}
+
+.pl-profile-pic {
+    width: 80px;
+    height: 53px;
+}
+
+.pl-px {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+.pl-scrollspy-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+}
+
+.pl-scrollspy-fixed {
+    position: fixed;
+    z-index: 99;
+}
+
+.pl-scrollspy-heading {
+    padding-top: 4rem;
+}
+
+.pl-scrollspy-example {
+    position: relative;
+    height: 200px;
+    margin-top: .5rem;
+    overflow-y: scroll;
+}
+
+.pl-scrollspy-example-2 {
+    position: relative;
+    height: 370px;
+    overflow: auto;
+}
+
+.pl-full-page {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.pl-search-padding {
+    padding-top: 40px;
+}
+
+/* bar graphs below */
+
+.pl-right-bar {
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.pl-red-bar {
+    background-color: red;
+}
+
+
+
+/* end of bar graphs */
+footer {
+    height: 80px;
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .pl-px {
+        padding-left: 2.75rem !important;
+        padding-right: 2.75rem !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .pl-px {
+        padding-left: 4rem !important;
+        padding-right: 4rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .pl-px {
+        padding-left: 5rem !important;
+        padding-right: 5rem !important;
+    }
+}
+
+@media (max-width: 1060px) {
+        .pl-hide-form {
+            display: none;
+        }
+}
+
+@media (max-width: 991px) {
+        .pl-toppad {
+            padding-top: 30px;
+        }
+        .pl-full-page {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            flex-direction: column;
+        }
+}
+
+@media (min-width: 1200px) {
+    .pl-scrollspy-container {
+        max-width: 1140px;
+    }
+}

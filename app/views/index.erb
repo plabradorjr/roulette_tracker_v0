@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RollyApp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../stylesheets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../stylesheets/pl-styles.css">
+  </head>
+<main>
+
+
+<div class="pl-full-page">
+
+    <div class="row flex-row-reverse mx-0">
+
+        <div class="col-lg-6 pl-bg-dark"> <!--Start of right hand column-->
+            <br>
+            <form class="form-inline justify-content-center pl-hide-form" method="post" action="/login">
+            <div class="row">
+                
+                <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" name="username" placeholder="Username">
+                
+                
+                <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="text" name="password" placeholder="Password">
+                
+                <button type="submit" class="btn btn-primary">Log in</button>
+            </div>
+            </form>
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8 pl-toppad">
+            <div class="container">
+                <br><br><br>
+                <span class="ml-3" style="font-size:40px">🎰 </span>
+                <h4 class="ml-3 text-left text-white font-weight-bold"> Spot Biased Roulette Tables.</h4>
+
+                <p class="text-left text-white pl-3 mt-5 pl-font-tiny">Join today.</p>
+                <div class="container">
+                <a class="btn btn-secondary mb-2" href="/signup" role="button">Sign up<a>
+                <a class="btn btn-primary mb-2" href="/login" role="button">Log in</a>
+                <br><br><br><br><br><br><br>
+                </div>
+            </div>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+
+        </div> <!--end of right hand column-->
+
+        <div class="col-lg-6 pl-bg-greyish pl-full-page"> <!--Start of LEFT hand column-->
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-10 pl-toppad float-left">
+                    <br><br><br><br><br><br>
+                    <span style="font-size:40px">📊 </span>
+                    <span class="text-left text-secondary font-weight-bold">See data through graphs</span><br>
+                    <span style="font-size:40px">✅  </span>
+                    <span class="text-left text-secondary font-weight-bold">Insert your own specific roulette data</span><br>
+                    <span style="font-size:40px">🎲 </span>
+                    <span class="text-left text-secondary font-weight-bold">Bet based on analytics</h5><br>
+                </div>
+
+                
+            </div>
+        </div> <!--End of LEFT hand column-->
+    </div>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script>
+        // Enable Tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+        // Enable Popovers
+        $('[data-toggle="popover"]').popover();
+    </script>
+  </main>
+</html>
