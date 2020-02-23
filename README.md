@@ -6,10 +6,6 @@ After checking out the repo, run `bundle install` to install dependencies.
 
 To view app on your local host, run `shotgun` and head to the specified port.
 
-## Design overview
-
-SurgiApp is deliberately designed so that collaboration is key to its usefulness. Anyone can edit any entries. Without other peoples' contributions, this app leads nowhere, and information will remain outdated. 
-
 
 ## Contributing
 
